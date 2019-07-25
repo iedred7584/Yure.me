@@ -1,6 +1,6 @@
 <template>
     <footer>
-        Copylight &copy; &nbsp; 2019 &nbsp; <a href="https://iedred7584.com/" target="blank">iedred7584</a>
+        Copyright &copy; &nbsp; 2019 &nbsp; <a href="https://iedred7584.com/" target="blank">iedred7584</a>
     </footer>
 </template>
 
