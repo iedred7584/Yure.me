@@ -1,31 +1,34 @@
 <template>
   <div id="history">
     <div class="box">
-      <div class="lists" v-html="list"></div>
+      <div class="loading" v-if="isLoading">読み込み中...</div>
+      <div class="lists" v-for="(e, i) in Histories" :key="i">
+        <router-link :to="{ name : 'Archive', params : { id: e.ID }}">
+          <div :class="i % 2 === 0 ? 'list_' : 'list'">
+            <div class="text">ID:{{e.ID}} / 震源地: {{e.Hypocenter}} / 最大震度 {{e.MaxInt}} / {{e.Magnitude}}</div>
+          </div>
+        </router-link>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 
 export default {
-  data () {
+  data() {
     return {
-      list: '<div class="loading">読み込み中.....</div>'
+      isLoading: true,
+      Histories: []
     }
   },
-  mounted () {
-    axios
-      .get('https://api.yure.me/history')
-      .then((response) => {
-        var list = ''
-        response.data.histories.forEach(function (e, index) {
-          list += '<a href="/archive/' + e.ID + '"><div class="list' + (index % 2 === 0 ? '_' : '') + '"><div class="text">ID: ' + e.ID + ' / 震源地: ' + e.Hypocenter + ' / 最大震度' + e.MaxInt + ' / ' + e.Magnitude + '</div></div></a>'
-        })
-        this.list = list
-      })
-      .catch((reason) => { })
+  mounted() {
+    axios.get("https://api.yure.me/history").then(response => {
+      this.isLoading = false
+      this.Histories = response.data.histories
+      console.log("ok " + this.isLoading)
+    })
   }
 }
 </script>
@@ -33,6 +36,7 @@ export default {
 <style>
 .box {
   padding-top: 10px;
+  padding-bottom: 0;
   overflow-x: auto;
 }
 
@@ -50,7 +54,8 @@ export default {
   background-color: #b8b8b8;
 }
 
-.list, .list_ {
+.list,
+.list_ {
   margin-bottom: 10px;
   padding: 10px;
   width: 100%;
@@ -65,7 +70,8 @@ export default {
 }
 
 @media screen and (max-width: 1050px), screen and (max-height: 830px) {
-  .list, .list_ {
+  .list,
+  .list_ {
     font-size: 18px;
   }
 }
