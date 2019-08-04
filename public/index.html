@@ -1,21 +1,55 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>揺れ見 - Yure.me</title>
-    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-    <style>@import url(//fonts.googleapis.com/earlyaccess/notosansjapanese.css);*{margin:0;padding:0}body{font-family:"Noto Sans Japanese",sans-serif!important;font-display:swap;background-color:#26547c!important}</style>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107587231-10"></script>
-    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','UA-107587231-10');$(window).on("load",function(){$("#splash").delay(2000).fadeOut()})</script>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but yure.me doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title>揺れ見 - Yure.me</title>
+  <meta name="title" content="地震情報 揺れ見 yure.me">
+  <meta name="description" content="地震情報を閲覧できるページです。過去情報も閲覧できます。">
+  <meta name="keywords" content="地震情報,地震,earthquake,災害,disaster,気象庁,JMA">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="language" content="Japanese">
+  <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+  <style>
+    @import url(//fonts.googleapis.com/earlyaccess/notosansjapanese.css);
+
+    * {
+      margin: 0;
+      padding: 0
+    }
+
+    body {
+      font-family: "Noto Sans Japanese", sans-serif !important;
+      font-display: swap;
+      background-color: #26547c !important
+    }
+  </style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107587231-10"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-107587231-10');
+    $(window).on("load", function () {
+      $("#splash").delay(2000).fadeOut()
+    })
+  </script>
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but yure.me doesn't work properly without JavaScript enabled. Please enable it to
+      continue.</strong>
+  </noscript>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+</body>
+
 </html>
