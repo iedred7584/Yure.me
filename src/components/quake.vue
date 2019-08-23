@@ -62,7 +62,7 @@ async function quake (s, i) {
   if (i === 1) v.isVisible = false
   await wait(0.2)
   axios
-    .get('https://api.yure.me/' + (typeof s === 'undefined' || s === '/quake' ? 'latest.json' : '/histories/' + s + '.json'))
+    .get('https://api.yure.me/' + (typeof s === 'undefined' || s === '/quake' ? 'latest.json?_=' + Math.floor(new Date().getTime() / 1000) : '/histories/' + s + '.json'))
     .then((response) => {
       var quake = response.data.Earthquake
       var com = ''
@@ -156,7 +156,7 @@ const wait = (sec) => {
   margin-top: 10px;
   padding: 10px;
   width: 70%;
-  height: calc(80% - 10px);
+  height: calc(80% - 20px);
   justify-content: center;
   align-items: center;
   background-color: #ffffff;
